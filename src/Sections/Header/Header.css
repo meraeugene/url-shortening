@@ -1,0 +1,170 @@
+.app__header {
+  display: flex;
+  align-items: center;
+  padding: 2rem 8rem;
+}
+
+.app__header-logo {
+  max-width: 90px;
+  display: flex;
+  align-items: center;
+  margin-right: 5rem;
+}
+
+.app__header-logo img {
+  width: 100%;
+}
+
+.app__header-links ul {
+  display: flex;
+  align-items: center;
+  list-style: none;
+  gap: 1.5rem;
+}
+
+.app__header-links ul li a {
+  color: var(--Grayish-Violet);
+  font-weight: 700;
+  transition: 0.3s;
+}
+
+.app__header-links ul li a:hover {
+  color: var(--Dark-Violet);
+}
+
+.app__header-login {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  flex: 2;
+}
+
+.app__header-login button {
+  background: none;
+  outline: none;
+  border: none;
+  font-size: 1rem;
+}
+
+.app__header-login .login-button {
+  margin-right: 1.5rem;
+  font-weight: 700;
+  color: var(--Grayish-Violet);
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.app__header-login .login-button:hover {
+  color: var(--Dark-Violet);
+}
+
+.app__header-login .signup-button {
+  background-color: var(--Cyan);
+  padding: 0.6rem 0rem;
+  border-radius: 50px;
+  width: 110px;
+  cursor: pointer;
+  color: #fff;
+  font-weight: 700;
+  transition: 0.3s;
+}
+
+.app__header-login .signup-button:hover {
+  opacity: 0.7;
+}
+
+.small-screen-overlay {
+  position: fixed;
+  top: 70px;
+  width: 90%;
+  left: 50%;
+  transform: translateX(-50%);
+  height: auto;
+  background-color: var(--Dark-Violet);
+  border-radius: 12px;
+  z-index: 5;
+  padding-bottom: 2rem;
+}
+
+.small-screen-overlay {
+  display: none;
+}
+
+@media screen and (max-width: 1150px) {
+  .app__header {
+    padding: 1rem;
+    justify-content: space-between;
+  }
+
+  .app__header-links {
+    display: none;
+  }
+
+  .app__header-login {
+    display: none;
+  }
+
+  .small-screen-overlay {
+    display: block;
+  }
+
+  .app__header-smallscreen-links {
+    padding: 1rem;
+    text-align: center;
+  }
+
+  .app__header-smallscreen-links ul {
+    list-style: none;
+  }
+
+  .app__header-smallscreen-links ul li {
+    padding: 0.7rem 0;
+  }
+
+  .app__header-smallscreen-links ul li a {
+    text-decoration: none;
+    color: #fff;
+  }
+
+  .dash {
+    width: 80%;
+    margin: 0 auto;
+    height: 2px;
+    background-color: var(--Gray);
+    opacity: 0.8;
+  }
+
+  .buttons {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    margin-top: 2rem;
+    gap: 1rem;
+  }
+
+  .buttons button:nth-child(1) {
+    background: none;
+    outline: none;
+    border: none;
+    color: #fff;
+    font-size: 1rem;
+  }
+
+  .buttons button:nth-child(2) {
+    background-color: var(--Cyan);
+    padding: 0.7em 0.5em;
+    width: 80%;
+    margin: 0 auto;
+    border-radius: 18px;
+    outline: none;
+    border: none;
+    color: #fff;
+    font-weight: 700;
+  }
+
+  .menu {
+    width: 40px;
+    height: 40px;
+  }
+}

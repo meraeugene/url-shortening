@@ -1,0 +1,59 @@
+.app__shorten {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: url("../../images/bg-shorten-desktop.svg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  margin: 0 8rem;
+  padding: 0rem 3rem;
+  margin-bottom: 2rem;
+  height: 150px;
+  border-radius: 8px;
+  background-color: var(--Very-Dark-Blue);
+  gap: 1rem;
+}
+
+.app__shorten input {
+  width: 100%;
+  padding: 1rem 2rem;
+  border-radius: 6px;
+  border: none;
+  outline: none;
+  font-size: 1rem;
+  color: var(--Grayish-Violet);
+  white-space: nowrap; /* Prevent line breaks */
+  overflow: hidden; /* Hide overflowing content */
+  text-overflow: ellipsis; /* Show ellipsis (...) when text is truncated */
+}
+
+.app__shorten button {
+  width: 20%;
+  padding: 1rem 2rem;
+  border-radius: 6px;
+  border: none;
+  outline: none;
+  font-size: 1rem;
+  background-color: var(--Cyan);
+  color: #fff;
+  cursor: pointer;
+  opacity: 0.9;
+  transition: 0.3s;
+}
+
+.app__shorten button:hover {
+  opacity: 1;
+}
+
+@media screen and (max-width: 1150px) {
+  .app__shorten {
+    flex-direction: column;
+    margin: 0 1rem;
+    padding: 0 1rem;
+    margin-bottom: 2rem;
+  }
+
+  .app__shorten button {
+    width: 100%;
+  }
+}

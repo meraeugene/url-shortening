@@ -1,0 +1,22 @@
+.app__boost {
+  text-align: center;
+  padding: 2rem 0;
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-image: url(../../images/bg-boost-desktop.svg);
+  background-color: var(--Dark-Violet);
+}
+
+.app__boost h1 {
+  line-height: 2.5em;
+  color: #fff;
+  font-weight: 700;
+}
+
+@media screen and (max-width: 1150px) {
+  .app__boost h1 {
+    font-size: 1.3rem;
+    margin-bottom: 0.5rem;
+  }
+}

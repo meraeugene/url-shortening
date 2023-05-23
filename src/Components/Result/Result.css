@@ -1,0 +1,86 @@
+.result {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border: 2px solid var(--Very-Dark-Blue);
+  padding: 1rem;
+  border-radius: 4px;
+  margin: 2rem 8rem;
+}
+
+.link {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  font-weight: 500;
+  color: var(--Very-Dark-Blue);
+}
+
+.generated-link {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  color: var(--Cyan);
+  gap: 1rem;
+  font-weight: 700;
+}
+
+.generated-link button {
+  border: none;
+  outline: none;
+  background-color: var(--Cyan);
+  cursor: pointer;
+  padding: 0.5rem 1rem;
+  border-radius: 4px;
+  font-weight: 700;
+  color: #fff;
+}
+
+.generated-link button:hover {
+  opacity: 0.7;
+}
+
+.generated-link button.copied {
+  background-color: hsl(260, 8%, 14%);
+  opacity: 1;
+}
+
+@media screen and (max-width: 1150px) {
+  .result {
+    margin: 0 1rem;
+    padding: 1rem;
+    flex-direction: column;
+    margin-bottom: 2rem;
+    gap: 0.5rem;
+  }
+
+  .link {
+    white-space: nowrap; /* Prevent line breaks */
+    overflow: hidden; /* Hide overflowing content */
+    text-overflow: ellipsis; /* Show ellipsis (...) when text is truncated */
+    width: 100%;
+    max-width: 100%; /* Added max-width */
+  }
+
+  .generated-link {
+    flex-direction: column;
+    width: 100%;
+    gap: 0;
+    align-items: flex-start;
+    white-space: nowrap; /* Prevent line breaks */
+    overflow: hidden; /* Hide overflowing content */
+    text-overflow: ellipsis; /* Show ellipsis (...) when text is truncated */
+  }
+
+  .dash {
+    width: calc(100% + 2rem); /* Adjust the value as needed */
+    margin-left: -1rem;
+    margin-right: -1rem;
+  }
+
+  .generated-link button {
+    width: 100%;
+    margin-top: 0.5em;
+    padding: 0.7rem 1rem;
+  }
+}
