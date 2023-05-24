@@ -3,21 +3,31 @@ import "./Shorten.css";
 import Result from "../../Components/Result/Result";
 
 const Shorten = () => {
-  const [inputLinks, setInputLinks] = useState([]); // State variable to store inputted links
-  const [shortenedLinks, setShortenedLinks] = useState([]); // State variable to store shortened links
-  const [currentInputLink, setCurrentInputLink] = useState(""); // State variable to store the current input link
+  const [inputLinks, setInputLinks] = useState([]);
+  const [shortenedLinks, setShortenedLinks] = useState([]);
+  const [currentInputLink, setCurrentInputLink] = useState("");
+  const [errorMessage, setErrorMessage] = useState("");
+  const [isLoading, setIsLoading] = useState(false); // New loading state
 
   const handleLinkInput = (e) => {
-    setCurrentInputLink(e.currentTarget.value); // Update the current input link state
+    setCurrentInputLink(e.currentTarget.value);
+    setErrorMessage("");
   };
 
   const handleLinkSubmit = (e) => {
     e.preventDefault();
-    shortenLink(currentInputLink); // Shorten the current input link
-    setInputLinks([...inputLinks, currentInputLink]); // Add the current input link to the inputLinks state array
-    setTimeout(() => {
-      setCurrentInputLink(""); // Clear the input field after a short delay
-    }, 100); // Adjust the delay time if needed
+    if (isValidLink(currentInputLink)) {
+      setIsLoading(true); // Start loading
+      shortenLink(currentInputLink);
+    } else {
+      setCurrentInputLink("");
+      setErrorMessage("Please enter a valid link");
+    }
+  };
+
+  const isValidLink = (link) => {
+    const pattern = /^(ftp|http|https):\/\/[^ "]+$/;
+    return pattern.test(link);
   };
 
   const shortenLink = (url) => {
@@ -27,7 +37,11 @@ const Shorten = () => {
         const {
           result: { short_link },
         } = data;
-        setShortenedLinks([...shortenedLinks, short_link]); // Add the shortened link to the shortenedLinks state array
+        setShortenedLinks([...shortenedLinks, short_link]);
+        setInputLinks([...inputLinks, url]);
+        setCurrentInputLink("");
+        setErrorMessage("");
+        setIsLoading(false); // Stop loading
       });
   };
 
@@ -36,9 +50,14 @@ const Shorten = () => {
       <div className="app__shorten">
         <input
           type="text"
-          placeholder="Shorten a link here..."
+          placeholder={
+            errorMessage
+              ? "Please enter a valid link"
+              : "Shorten a link here..."
+          }
           onChange={handleLinkInput}
           value={currentInputLink}
+          className={errorMessage ? "error-input" : ""}
         />
         <button type="submit" onClick={handleLinkSubmit}>
           Shorten It!

@@ -2,10 +2,10 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  border: 2px solid var(--Very-Dark-Blue);
   padding: 1rem;
   border-radius: 4px;
   margin: 2rem 8rem;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1), 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
 .link {
@@ -14,6 +14,10 @@
   justify-content: flex-start;
   font-weight: 500;
   color: var(--Very-Dark-Blue);
+  white-space: nowrap; /* Prevent line breaks */
+  overflow: hidden; /* Hide overflowing content */
+  text-overflow: ellipsis; /* Show ellipsis (...) when text is truncated */
+  max-width: 70%; /* Added max-width */
 }
 
 .generated-link {

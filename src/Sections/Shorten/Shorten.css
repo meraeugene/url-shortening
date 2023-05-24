@@ -18,13 +18,24 @@
   width: 100%;
   padding: 1rem 2rem;
   border-radius: 6px;
-  border: none;
   outline: none;
   font-size: 1rem;
   color: var(--Grayish-Violet);
   white-space: nowrap; /* Prevent line breaks */
   overflow: hidden; /* Hide overflowing content */
   text-overflow: ellipsis; /* Show ellipsis (...) when text is truncated */
+}
+
+.app__shorten input.error-input {
+  border: 3px solid #ff0000 !important; /* Set the border color to red for error state */
+}
+
+.app__shorten input.error-input::placeholder {
+  color: #ff0000;
+}
+
+.app__shorten input.error-input:focus {
+  border-color: #ff0000 !important; /* Set the border color to red for error state when input is focused */
 }
 
 .app__shorten button {
